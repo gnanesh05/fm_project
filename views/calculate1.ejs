@@ -14,7 +14,7 @@
      <header class="jumbotron">
          <div class="container">
 			 <div class="text-center">
-             <h2>Loss Calculator </h2> 
+             <h1>Loss Calculator </h1> 
 				 <p>FOR ALL SORTS OF LOSSES</p>
 			 </div>
              <p></p>
@@ -27,9 +27,9 @@
 
    
 
-	 <div class="panel panel-default">
+	 <div class="panel panel-default form" style="margin-top:50px;">
 		 
-		 <div class="panel body">
+		 <div class="panel body ">
 			 		 
 		 <h2>
 			 Proccessed Data
@@ -147,7 +147,7 @@
 			               <%}%>
 			 
 			           <%if(2100>re1< 4000) {%>
-			             <%="Flow is in TRANSIOTIONAL REGIME. Alpha cannot be calculated."%>
+			             <%="Flow is in TRANSITIONAL REGIME. Alpha cannot be calculated."%>
 			             <%alpha1=0%>
 			               <%}%>
 			          
@@ -163,7 +163,7 @@
 			               <%}%>
 			 
 			           <% if(2100>re2< 4000) {%>
-			             <%="Flow is in TRANSIOTIONAL REGIME. Alpha cannot be calculated."%>
+			             <%="Flow is in TRANSITIONAL REGIME. Alpha cannot be calculated."%>
 			             <%alpha2=0%>
 			               <%}%>
 		 </p>
@@ -205,11 +205,14 @@
 				<%if(member){%>			 
 				 <%var fittings = {} %>
 				  <%for (var i=0; i<member.length; i++) {%>
-				                    <% fittings[i]=parseFloat(member[i]) %>
+				                    <%=fittings[i]=parseFloat(member[i]) %>
 				                    
 				                    <%}}%>
 				   
 			 </p>
+			 <%=calculate.dia3%>
+			 <%=calculate.dia4%>
+			 
 			 <p>
 				<strong>Minor Loss :</strong> 
 				     
@@ -219,14 +222,17 @@
 				                    <%if(fittings[i]==1){%>
 				                    <% minl=minl+(0.4*(1-(calculate.dia2 * calculate.dia2)/(calculate.dia1*calculate.dia1))*  (u1*u1/2))%>
 				             <% }%>                          
-				         <%if(fittings[i]==2){%>
-				                    <% minl=minl+(Math.pow((1-(calculate.dia3 *calculate.dia3)/(calculate.dia4*calculate.dia4)),2)*(u1*u1/2)) }else{%>
+				                    <%if(fittings[i]==2){%>
+				                    <%  var val=(1-(calculate.dia3 * calculate.dia3)/(calculate.dia4*calculate.dia4))%>
+				                     <%minl=minl+(val*val*(u1*u1/2)) %>
+				             <% }else{%>
 				                    
-				                    <%minl=minl+(fittings[i]*u1*u1/2) %>
-				                    <%}}%>            
+				                    <%minl=minl+(fittings[i]*u1*u1/2)%>
+				                    <%}%>
+				       <%}%>
  
 				   <%=minl%>
-				  
+				
 			 </p>
 			 
 			 <p> 

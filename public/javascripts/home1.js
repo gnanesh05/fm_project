@@ -106,7 +106,12 @@ function show6(){
 		  var newOption11= document.createElement('option');
 		  var newOption12 = document.createElement('option');
 		  var newOption13 = document.createElement('option');
-		 
+		  var newOption14  = document.createElement('option');
+     	  var newOption15  = document.createElement('option');
+		  var newOption16  = document.createElement('option');
+		  var newOption17  = document.createElement('option');
+		  var newOption18  = document.createElement('option');
+		  var newOption19  = document.createElement('option');
 		 var optionText = document.createTextNode('type');
 // set option text
           //newOption.appendChild(optionText);
@@ -123,6 +128,12 @@ function show6(){
 		 newOption11 = new Option(' standard tee','1.8');
 		 newOption12 = new Option(' square entrance','0.5');
 		 newOption13 = new Option(' exit','12');
+		 newOption14 = new Option(' swing check valve','2');
+		 newOption15 = new Option(' ball valve','0.05');
+		 newOption16 = new Option(' diaphragm valve','2.3');
+		 newOption17 = new Option(' water meter','7');
+		 newOption18 = new Option(' 180° return bend flanged','0.2');
+		 newOption19 = new Option(' union','0.08');
 		 
 		// newOption.setAttribute('value','Option Value');
 		 
@@ -139,6 +150,12 @@ function show6(){
 		 input.appendChild(newOption11);
 		 input.appendChild(newOption12);
 		 input.appendChild(newOption13);
+		 input.appendChild(newOption14);
+		 input.appendChild(newOption15);
+		 input.appendChild(newOption16);
+		 input.appendChild(newOption17);
+		 input.appendChild(newOption18);
+		 input.appendChild(newOption19);
 		 label.appendChild(document.createTextNode("fitting" + (i+1)));
       
          input.name ="member";
@@ -209,23 +226,36 @@ function show6(){
 		  var newOption11= document.createElement('option');
 		  var newOption12 = document.createElement('option');
 		  var newOption13 = document.createElement('option');
-		 
-		 var optionText = document.createTextNode('type');
+		  var newOption14  = document.createElement('option');
+     	  var newOption15  = document.createElement('option');
+		  var newOption16  = document.createElement('option');
+		  var newOption17  = document.createElement('option');
+		  var newOption18  = document.createElement('option');
+		  var newOption19  = document.createElement('option');
+		  var optionText = document.createTextNode('type');
 // set option text
           //newOption.appendChild(optionText);
 		 newOption1 = new Option(' select','0');
 		 newOption2 = new Option(' sudden contraction','1');
 		 newOption3 = new Option(' sudden expansion','2');
-		 newOption4 = new Option(' global value','10');
-		 newOption5 = new Option(' angle value','5');
-		 newOption6 = new Option(' gate value','0.2');
+		 newOption4 = new Option(' global valve','10');
+		 newOption5 = new Option(' angle valve','5');
+		 newOption6 = new Option(' gate valve','0.2');
 		 newOption7 = new Option(' short radius','0.9');
 		 newOption8 = new Option(' medium radius','0.8');
-		 newOption9 = new Option(' 45inch elbow','0.4');
+		 newOption9 = new Option(' 45°elbow threaded regular','0.4');
 		 newOption10 = new Option(' short tee','0.6');
 		 newOption11 = new Option(' standard tee','1.8');
 		 newOption12 = new Option(' square entrance','0.5');
 		 newOption13 = new Option(' exit','12');
+		 newOption14 = new Option(' swing check valve','2');
+		 newOption15 = new Option(' ball valve','0.05');
+		 newOption16 = new Option(' diaphragm valve','2.3');
+		 newOption17 = new Option(' water meter','7');
+		 newOption18 = new Option(' 180° return bend flanged','0.2');
+		 newOption19 = new Option(' union','0.08');
+		
+		 
 		 
 		// newOption.setAttribute('value','Option Value');
 		 
@@ -242,6 +272,12 @@ function show6(){
 		 input.appendChild(newOption11);
 		 input.appendChild(newOption12);
 		 input.appendChild(newOption13);
+		 input.appendChild(newOption14);
+		 input.appendChild(newOption15);
+		 input.appendChild(newOption16);
+		 input.appendChild(newOption17);
+		 input.appendChild(newOption18);
+		 input.appendChild(newOption19);
 		 label.appendChild(document.createTextNode("fitting" + (i+1)));
       
          input.name ="member1";
@@ -301,22 +337,24 @@ function show6(){
 						 div5.className ="col-lg-6"
 				         div6.className="form-group";
 						var label1= document.createElement("label");
-						label1.appendChild(document.createTextNode("diameter of pipe" + (1)));
+						label1.appendChild(document.createTextNode("Dimension " + (1)));
 						var input1= document.createElement("input");
 						input1.type="number";
 						input1.className="form-control";
 						input1.name="d1";
+						input1.step="0.01";
 						div2.appendChild(label1);
 						div2.appendChild(input1);
 						div1.appendChild(div2);
 						
 						pipetype.appendChild(div1);
 						var label2= document.createElement("label");
-						label2.appendChild(document.createTextNode("diameter of pipe" + (1)));
+						label2.appendChild(document.createTextNode("Dimension " + (1)));
 						var input2= document.createElement("input");
 						input2.type="number";
 						input2.className="form-control";
 						input2.name="d2";
+						input2.step="0.01";
 						div6.appendChild(label2);
 						div6.appendChild(input2);
 						div5.appendChild(div6);
@@ -333,13 +371,14 @@ function show6(){
 						div7.className = "col-lg-6";
 				        div8.className="form-group";
 					   var label2= document.createElement("label");
-					   label2.appendChild(document.createTextNode("diameter of pipe" + (2)));
+					   label2.appendChild(document.createTextNode("dimension" + (2)));
 					   
 					   var input2= document.createElement("input");
 						
 						input2.type="number";
 						input2.className="form-control";
 						input2.name="d3";
+						input2.step="0.01";
 				
 						div4.appendChild(label2);
 						div4.appendChild(input2);
@@ -348,14 +387,14 @@ function show6(){
 						pipetype.appendChild(div3);
 						
 						 var label3= document.createElement("label");
-					   label3.appendChild(document.createTextNode("diameter of pipe" + (2)));
+					   label3.appendChild(document.createTextNode("dimension" + (2)));
 					   
 					   var input3= document.createElement("input");
 						
 						input3.type="number";
 						input3.className="form-control";
 						input3.name="d4";
-				
+				        input3.step="0.01";
 						div8.appendChild(label3);
 						div8.appendChild(input3);
                         div7.appendChild(div8);
@@ -398,6 +437,7 @@ function show6(){
 						input1.type="number";
 						input1.className="form-control";
 						input1.name="d1";
+						input1.step="0.01";
 						div2.appendChild(label1);
 						div2.appendChild(input1);
 						div1.appendChild(div2);
@@ -422,6 +462,7 @@ function show6(){
 						input2.type="number";
 						input2.className="form-control";
 						input2.name="d2";
+						input2.step="0.01";
 				
 						div4.appendChild(label2);
 						div4.appendChild(input2);

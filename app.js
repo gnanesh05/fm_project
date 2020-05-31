@@ -30,6 +30,8 @@ app.post("/result1", function(req,res){
 	calculate.pump_work = req.body.pump_work;
 	calculate.dia1 = req.body.dia1;
 	calculate.dia2 = req.body.dia2;
+	calculate.dia3 = req.body.dia3;
+	calculate.dia4 = req.body.dia4;
 	calculate.fittings = req.body.fittings;
 	calculate.eps = req.body.eps;
 	calculate.len = req.body.len;
@@ -60,6 +62,8 @@ app.post("/result2", function(req,res){
 	calculate.fittings = req.body.fittings;
 	calculate.dia1 = req.body.dia1;
 	calculate.dia2 = req.body.dia2;
+	calculate.dia3 = req.body.dia3;
+	calculate.dia4 = req.body.dia4;
 	calculate.d1  = req.body.d1;
 	calculate.d2  = req.body.d2;
 	member1 = req.body.member1;
