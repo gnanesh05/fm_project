@@ -182,6 +182,7 @@ function show6(){
 		 	 var container1 = document.getElementById("container1");
 		 while (container1.hasChildNodes()) {
                 container1.removeChild(container1.lastChild);
+		 }
 		 
 	 
 	 for (i=0;i<number1;i++){
@@ -271,7 +272,7 @@ function show6(){
          container1.appendChild(document.createElement("br")); 
 		 
 	 }      
-	 }
+	 
         }
 		
 		function PipeType(shape)
@@ -564,3 +565,4 @@ document.getElementsByClassName('numbersonly').addEventListener('keydown', funct
       (key == 190) 
     )) e.preventDefault();
 });
+	
