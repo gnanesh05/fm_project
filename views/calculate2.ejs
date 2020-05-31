@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Loss Calculator</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/calculate.css">
+        
+    </head>
+    <body>
+   
+ 
+	
+		
+		
+<div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Loss Calculator</h1>
+             <p>FOR ALL SORTS OF LOSSES</p>
+            
+         </div>
+     </header>
+   <div class="container">
+    <div class="row">
+     <div class="text-center">
+		 
+		 <h4>
+			 Proccessing data
+		 </h4>
+	 <div class="panel panel-default">
+		 
+		 <div class="panel body">
+
+		 <p>
+	             
+				 <% if(calculate.ptype==1) {%>
+			             <%dh=calculate.d1 %>
+			               <%}%>
+				 
+				 <% if(calculate.ptype==2) {%>
+			             <%dh=calculate.d1 %>
+			               <%}%>
+				 
+				 <% if(calculate.ptype==3) {%>
+			             <%dh=(calculate.d1/(4*1.732051)) %>
+			              <%}%>
+				 
+				 <% if(calculate.ptype==4) {%>
+			             <%dh=((2*calculate.d1*calculate.d2)/(calculate.d1+calculate.d2)) %>
+			               <%}%>
+			</p>
+				 
+
+            <p>
+				  
+				 <% if(calculate.ptype==1) {%>
+			             <%area=dh*dh %>
+			               <%}%>
+				 
+				 <% if(calculate.ptype==2) {%>
+			             <%area=(3.14159*dh*dh)/4 %>
+			               <%}%>
+				 
+				 <% if(calculate.ptype==3) {%>
+			             <%area=(1.732051/4)*calculate.d1*calculate.d1 %>
+			              <%}%>
+				 
+				 <% if(calculate.ptype==4) {%>
+			             <%area=calculate.d1*calculate.d2 %>
+			               <%}%> 
+			 </p>
+		 
+		    
+				 
+		    
+		 
+		    <p>
+			  <% dv = calculate.fluid.split(',') %>
+			  
+			      <%dv[0]= parseFloat(dv[0]) %>
+			         <%dv[1]=parseFloat( dv[1]) %>
+		    </p>
+		 
+		  
+
+			 
+		    <p> <%if(member1) {%>
+				 <%var fittings = {} %>
+				     <%for (var i=0; i<member1.length; i++) {%>
+				                    <%fittings[i]=parseFloat(member1[i]) %>
+				                    <%}}%>
+			 </p>
+		 
+		     <p>
+				  <%u=(calculate.flow_rate/area)%>
+			 </p>
+			 
+			 <p>
+				 
+				  <%(re=u*dv[0]*dh)/dv[1] %>
+			       <%re=parseFloat(re) %>
+			 </p>
+			 
+			 <p>
+				   <%deno=(Math.log10(((calculate.eps/dh)/3.7)+(5.74/(Math.pow(re,0.9)))))%>
+			 </p>
+			 
+			 <p> 
+				 <strong> Darcy's Friction factor : <%=fd=(1.325/(Math.pow(deno,2)))%> </strong>
+			 </p>
+			 
+			 <p>
+				 <strong> Major Loss : <%=hf=(fd*calculate.len*u*u)/(2*dh)%> </strong>
+			 </p>
+		 
+			  <p>
+				<%if(member1){%>		 
+				 <%var fittings = {} %>
+				Fittings:  <%for (var i=0; i<member1.length; i++) {%>
+				                    <%= fittings[i]=parseFloat(member1[i]) %>
+				                    
+				                    <%}}%>
+			 </p>
+			 <p>
+				 <strong> Minor Loss : </strong>
+				     
+				  <%var minl=0%>
+			             
+                     <%for (var i=0; i<calculate.fittings.length; i++) {%>
+				                    <%if(fittings[i]==1){%>
+				                    <% minl=minl+(0.4*(1-(calculate.dia2 * calculate.dia2)/(calculate.dia1*calculate.dia1))*  (u*u/2))%>
+				             <% }%>                          
+				         <%if(fittings[i]==2){%>
+				                    <% minl=minl+(Math.pow((1-(calculate.dia3 *calculate.dia3)/(calculate.dia4*calculate.dia4)),2)*(u*u/2)) } else{%>
+				                    
+				                    <%minl=minl+(fittings[i]*u*u/2) %>
+				                    <%}}%>            
+ 
+
+				   <%=minl%>
+				  
+			 </p>
+			 
+			 <p>
+				 			
+				 <strong> Total loss : <%=tot=(hf+minl)%> </strong>
+			 </p>
+			 
+		 		
+		 </div>
+		 <a  class="btn btn-info" href="/">Go back</a>
+		 </div>
+		</div>
+		
+	 </div>	 
+   </div> 
+ </div>
+</body>
+</html>

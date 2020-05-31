@@ -1,0 +1,309 @@
+<div class="container">
+  <h2>The two types of calculations</h2>
+  <p>So far we have evolved to produce two approaches namely, soft pipes and rough pipes. Even though rough pipe is the practically available we also use soft pipes only for mere calculations purposes</p>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Smooth pipe</a></li>
+    <li><a data-toggle="pill" href="#menu1">Rough pipe</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Smooth Pipe</h3>
+     <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Major and Minor Losses</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/result1" method="POST">
+                <div class="form-group">
+                  <label for="cars">Choose a pipe:</label>
+                       <select  class="form-control" name="pipe" placeholder="pipe"   onchange='Checkpipe(this.value);' >
+                         <option value="0">select</option>
+                         <option value="1">horizontal</option>
+                         <option value="2">vertical</option>
+                         <option value="3">inclined</option>
+                        </select>  
+                </div>
+				<br>
+				 <div class="col-lg-6" >
+				   <div class="form-group">
+					  <label for="distance2">distance 1:</label>
+                      <input class="form-control d1"  type="number"  name="dis1" placeholder="enter d1"  min="0" style='display:none;'>  
+                  </div>
+				 </div>	 
+				<div class="col-lg-6" >
+				  <div class="form-group">
+					<label for="distance2">distance 2:</label>
+                    <input class="form-control d2"  type="number"  name="dis2" placeholder="enter d2" min="0"   style='display:none;'>
+                  </div>
+				</div>
+				<br>
+               <div class="col-lg-6"> 
+				 <div class="form-group">
+					<label for="pressure1">pressure 1:</label>
+                    <input class="form-control" type="number" name="pre1" placeholder="pressure1" min="0"  >
+                 </div>
+				</div>
+			  <div class="col-lg-6">	
+				<div class="form-group">
+					<label for="pressure2">pressure 2:</label>
+                    <input class="form-control" type="number" name="pre2" placeholder="pressure2" min="0"  >
+                </div>
+			  </div>
+				<br>
+			  <div class="form-group">
+                  <label for="type of pipe">Choose a shape:</label>
+                       <select  class="form-control" name="ptype" placeholder="pipe type"  onchange="PipeType(this.value)">
+                         <option value="0">select</option>
+                         <option value="1">square</option>
+						 <option value="2">circular</option>
+                         <option value="3">triangle</option>
+                         <option value="4">rectangle</option>
+                       </select>  
+                </div>
+			  <div id ="pipetype">
+				 
+			  </div>
+				
+			  <br>
+				
+				<div class="form-group">
+					<label for="length">length:</label>
+                    <input class="form-control" type="number" name="len" placeholder="enter length of the pipe" min="0"  >
+                </div>
+				
+				<br>
+				<div class="form-group">
+                  <label for="fuids">Choose a fluid:</label>
+                       <select  class="form-control" name="fluid" placeholder="fluid" >
+                         <OPTION VALUE="0"> Select...</OPTION>
+							<OPTION VALUE="1000,0.001">Water</OPTION>
+							<OPTION VALUE="7">Oil</OPTION>
+							<OPTION VALUE="789,0.001144">Ethanol</OPTION>
+							<OPTION VALUE="1.2041,0.0000169">Air</OPTION>
+							<OPTION VALUE="994,5.5">Petrol</OPTION>
+							<OPTION VALUE="13580,0.0015">Mercury</OPTION>
+							<OPTION VALUE="804,0.00164">Kerosene</OPTION>
+							<OPTION VALUE="3104.0.00095">Bromine</OPTION>
+						   
+                        </select>  
+                </div>
+				<br>
+				<div class="form-group">
+					<label for="volumetric flow rate">volumetric flow rate:</label>
+                    <input class="form-control" type="number"  name="flow_rate" placeholder="enter the flow rate" min="0" >
+                </div>
+				<br>
+				 <div class="form-group">
+					<label for="volumetric flow rate">presence of pump:</label>
+                    <input type="radio" name="tab" value="yes" onclick="show1();" />
+                                   Yes
+                   <input type="radio" name="tab" value="no" onclick="show2();" />
+                                   No
+                </div>
+				<br>
+				<div id="pumpcheck" style="display:none">
+				  <div class="form-group">
+					<label for="pump efficiency">pump efficiency:</label>
+                    <input class="form-control" type="number" id="pe" name="pump_eff" placeholder="enter the efficiency value" min="0"  >
+                </div>
+				
+				<div class="form-group">
+					<label for="pump work">pump work:</label>
+                    <input class="form-control" type="number" id="pw" name="pump_work" placeholder="enter the pump work value" min="0"  >
+                </div>	
+				</div>
+				<br>
+				<div class="form-group"> 
+					<label for="volumetric flow rate">presence of fittings:</label>
+                    <input type="radio" name="tab" value="yes" onclick="show3();" />
+                                   Yes
+                   <input type="radio" name="tab" value="no" onclick="show4();" />
+                                   No
+                </div>
+				<br>
+				<div id="fittings" style="display:none">
+				  <div class="form-group">
+					<label for="no of fittings">total number of fittings:</label>
+                   <input class="form-control" type="number" id="nof" name="fittings" min="0"    >
+				   <a href="#" id="filldetails" onclick="fittings()">Fill Details</a>
+                  </div>	
+				</div>
+				<div class="form-group" id="container">
+					
+                   
+                </div>
+				<div class="col-lg-6">
+				  <div class="form-group">
+					<label for="diamter 1">diameter 1:</label>
+                    <input class="form-control" type="number" id="a1" name="dia1" placeholder="enter the D1" min="0"  style='display:none;'>
+                  </div>
+				</div>
+				<div class="col-lg-6">
+				  <div class="form-group">
+					<label for="diamter 1">diameter 2:</label>
+                    <input class="form-control" type="number" id="a2" name="dia2" placeholder="enter the D2" min="0"  style='display:none;'>
+                 </div>
+				</div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            
+           </div>
+       </div>
+      </div>
+    </div>
+	  
+	  <div id="menu1" class="tab-pane fade in active">
+      <h3>Smooth Pipe</h3>
+     <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Major and Minor Losses</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/result1" method="POST">
+                <div class="form-group">
+                  <label for="cars">Choose a pipe:</label>
+                       <select  class="form-control" name="pipe" placeholder="pipe"   onchange='Checkpipe(this.value);' >
+                         <option value="0">select</option>
+                         <option value="1">horizontal</option>
+                         <option value="2">vertical</option>
+                         <option value="3">inclined</option>
+                        </select>  
+                </div>
+				<br>
+				 <div class="col-lg-6" >
+				   <div class="form-group">
+					  <label for="distance2">distance 1:</label>
+                      <input class="form-control d1"  type="number"  name="dis1" placeholder="enter d1"  min="0" style='display:none;'>  
+                  </div>
+				 </div>	 
+				<div class="col-lg-6" >
+				  <div class="form-group">
+					<label for="distance2">distance 2:</label>
+                    <input class="form-control d2"  type="number"  name="dis2" placeholder="enter d2" min="0"   style='display:none;'>
+                  </div>
+				</div>
+				<br>
+               <div class="col-lg-6"> 
+				 <div class="form-group">
+					<label for="pressure1">pressure 1:</label>
+                    <input class="form-control" type="number" name="pre1" placeholder="pressure1" min="0"  >
+                 </div>
+				</div>
+			  <div class="col-lg-6">	
+				<div class="form-group">
+					<label for="pressure2">pressure 2:</label>
+                    <input class="form-control" type="number" name="pre2" placeholder="pressure2" min="0"  >
+                </div>
+			  </div>
+				<br>
+			  <div class="form-group">
+                  <label for="type of pipe">Choose a shape:</label>
+                       <select  class="form-control" name="ptype" placeholder="pipe type"  onchange="PipeType(this.value)">
+                         <option value="0">select</option>
+                         <option value="1">square</option>
+						 <option value="2">circular</option>
+                         <option value="3">triangle</option>
+                         <option value="4">rectangle</option>
+                       </select>  
+                </div>
+			  <div id ="pipetype">
+				 
+			  </div>
+				
+			  <br>
+				
+				<div class="form-group">
+					<label for="length">length:</label>
+                    <input class="form-control" type="number" name="len" placeholder="enter length of the pipe" min="0"  >
+                </div>
+				
+				<br>
+				<div class="form-group">
+                  <label for="fuids">Choose a fluid:</label>
+                       <select  class="form-control" name="fluid" placeholder="fluid" >
+                         <OPTION VALUE="0"> Select...</OPTION>
+							<OPTION VALUE="1000,0.001">Water</OPTION>
+							<OPTION VALUE="7">Oil</OPTION>
+							<OPTION VALUE="789,0.001144">Ethanol</OPTION>
+							<OPTION VALUE="1.2041,0.0000169">Air</OPTION>
+							<OPTION VALUE="994,5.5">Petrol</OPTION>
+							<OPTION VALUE="13580,0.0015">Mercury</OPTION>
+							<OPTION VALUE="804,0.00164">Kerosene</OPTION>
+							<OPTION VALUE="3104.0.00095">Bromine</OPTION>
+						   
+                        </select>  
+                </div>
+				<br>
+				<div class="form-group">
+					<label for="volumetric flow rate">volumetric flow rate:</label>
+                    <input class="form-control" type="number"  name="flow_rate" placeholder="enter the flow rate" min="0" >
+                </div>
+				<br>
+				 <div class="form-group">
+					<label for="volumetric flow rate">presence of pump:</label>
+                    <input type="radio" name="tab" value="yes" onclick="show1();" />
+                                   Yes
+                   <input type="radio" name="tab" value="no" onclick="show2();" />
+                                   No
+                </div>
+				<br>
+				<div id="pumpcheck" style="display:none">
+				  <div class="form-group">
+					<label for="pump efficiency">pump efficiency:</label>
+                    <input class="form-control" type="number" id="pe" name="pump_eff" placeholder="enter the efficiency value" min="0"  >
+                </div>
+				
+				<div class="form-group">
+					<label for="pump work">pump work:</label>
+                    <input class="form-control" type="number" id="pw" name="pump_work" placeholder="enter the pump work value" min="0"  >
+                </div>	
+				</div>
+				<br>
+				<div class="form-group"> 
+					<label for="volumetric flow rate">presence of fittings:</label>
+                    <input type="radio" name="tab" value="yes" onclick="show3();" />
+                                   Yes
+                   <input type="radio" name="tab" value="no" onclick="show4();" />
+                                   No
+                </div>
+				<br>
+				<div id="fittings" style="display:none">
+				  <div class="form-group">
+					<label for="no of fittings">total number of fittings:</label>
+                   <input class="form-control" type="number" id="nof" name="fittings" min="0"    >
+				   <a href="#" id="filldetails" onclick="fittings()">Fill Details</a>
+                  </div>	
+				</div>
+				<div class="form-group" id="container">
+					
+                   
+                </div>
+				<div class="col-lg-6">
+				  <div class="form-group">
+					<label for="diamter 1">diameter 1:</label>
+                    <input class="form-control" type="number" id="a1" name="dia1" placeholder="enter the D1" min="0"  style='display:none;'>
+                  </div>
+				</div>
+				<div class="col-lg-6">
+				  <div class="form-group">
+					<label for="diamter 1">diameter 2:</label>
+                    <input class="form-control" type="number" id="a2" name="dia2" placeholder="enter the D2" min="0"  style='display:none;'>
+                 </div>
+				</div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            
+           </div>
+       </div>
+      </div>
+    </div>
+	  
+	  
+	  
+   
+  </div>
+    </div>
+    </div>
