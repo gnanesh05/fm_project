@@ -69,7 +69,7 @@ app.post("/result2", function(req,res){
 });
 
 
-app.listen(6000, function()
-		  {
-	     console.log("port at 6000");
-})
+var port = process.env.PORT || 6000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
+});
