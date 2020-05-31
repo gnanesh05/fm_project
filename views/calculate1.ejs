@@ -127,6 +127,7 @@
 		 <p>
 			       <% re1=((u1*dv[0]*dh1)/dv[1]) %>
 			          <%re1=parseFloat(re1) %>
+			      
 		 </p>
 			
 		 <p>
@@ -134,21 +135,21 @@
 		 </p> 
 		 
 		 <p>
-		          <%re2=((u2*dv[0]*dh2)/dv[1]) %>
+		         <%re2=((u2*dv[0]*dh2)/dv[1]) %>
 			       <%re2=parseFloat(re2) %>
 		 </p>
 					
          <p>
-			  <strong>Alpha 1</strong> :: <% if(re1 < 2100) { %>
+			  <strong>Alpha 1</strong> : <% if(re1 < 2100) { %>
 			             <%=aplha1 = 2  %> 
 			              <% } %>
 			 
 			 
 				      <% if(re1 > 4000) {%>
 			             <%=alpha1 = 1 %>
-			               <%}%>
+			               <%} else {%>
 			 
-			           <%if(2100>re1< 4000) {%>
+			           
 			             <%="Flow is in TRANSITIONAL REGIME. Alpha cannot be calculated."%>
 			             <%alpha1=0%>
 			               <%}%>
@@ -162,17 +163,19 @@
 			 
 				      <% if(re2 > 4000) {%>
 			             <%=alpha2 = 1 %>
-			               <%}%>
+			               <%}else {%>
 			 
-			           <% if(2100>re2< 4000) {%>
+			           
 			             <%="Flow is in TRANSITIONAL REGIME. Alpha cannot be calculated."%>
 			             <%alpha2=0%>
 			               <%}%>
 		 </p>
 			 
 			 <p>
-				 <strong>Pressure Head  </strong>: <% pdif= (calculate.pre1-calculate.pre2)/dv[0]%>
-				 <%=pdif/9.81%>
+				 
+					 
+				 <strong>Pressure Head  </strong>: <%pdif=((calculate.pre1-calculate.pre2)/dv[0])%>
+				 <%=(pdif/9.81)%>
 			 </p>
 			 
 			 <p>
