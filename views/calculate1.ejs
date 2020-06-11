@@ -175,22 +175,22 @@
 				 
 					 
 				 <strong>Pressure Head  </strong>: <%pdif=((calculate.pre1-calculate.pre2)/dv[0])%>
-				 <%=(pdif/9.81)%>
+				 <%=(pdif/9.81)%> m
 			 </p>
 			 
 			 <p>
 				<strong>Potential Head </strong> : <% delz=(calculate.dis1- calculate.dis2)*9.81 %>
-				 <%=delz/9.81%>
+				 <%=delz/9.81%> m
 			 </p>
 			 
 			 <p>
 				<strong>Velocity Head</strong>  : <%vel=((alpha1*u1*u1/2)-(alpha2*u2*u2/2))%>
-				 <%=vel/9.81%>
+				 <%=vel/9.81%> m
 			 </p>
 			 
 			 <p>
 				<strong>Mechanical Energy from pump </strong> :  <%pump=(calculate.pump_eff*calculate.pump_work)%>
-				 <%=pump%>
+				 <%=pump%> J/kg
 			 </p>
 			
 			
@@ -199,10 +199,10 @@
 				<strong> Major Loss :</strong> 
 				 <% if(alpha1 && alpha2 !=0) {%>
 				 <% hf=(pdif+delz+vel+pump) %>
-				 <%=hf%>
+				 <%=hf%> m^2/s^2
 				  <%} else {%>
 				  <%="cannot be calculated" %>
-				  <%hf=0%>
+				  <%hf=0%> 
 				  <%}%>
 			</p>
                 
@@ -236,13 +236,13 @@
 				                    <%}%>
 				       <%}%>
  
-				   <%=minl%>
+				   <%=minl%> m^2/s^2
 				
 			 </p>
 			 
 			 <p> 
 				
-				<strong>Total Loss:</strong>  <%=tot=(hf+minl)%>
+				<strong>Total Loss:</strong>  <%=tot=(hf+minl)%> m^2/s^2
 			 </p>
 				  
 				 
